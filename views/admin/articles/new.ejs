@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr-ca">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Blog</title>
+  </head>
+  <body>
+    <main>
+      <div class="banner gradient flex">
+        <div class="col-d9 col-t11 max-width">
+          <h1 class="mF">Nouvel Article</h1>
+        </div>
+      </div>
+      <div class="flex">
+        <form class="col-d9 col-t11 max-width" action="/articles/" method="post">
+          <label for="title">Titre:</label>
+          <input type="text" id="title" name="title" required>
+          <label for="description">Description:</label>
+          <textarea id="description" rows="1" cols="50" name="description" required></textarea>
+          <label for="main">Texte principal:</label>
+          <textarea id="main" name="main" rows="4" cols="50" required></textarea>
+          <a href="/" class="btn red">Annuler</a>
+          <button type="submit">Soumettre</button>
+          <%- include("_explanations"); %>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

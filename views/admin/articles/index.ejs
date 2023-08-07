@@ -1,0 +1,40 @@
+<!-- purpose: display all blog articles -->
+<!doctype html>
+<html lang="fr-ca">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Archive</title>
+  </head>
+  <body>
+    <main>
+      <div class="banner gradient flex">
+        <div class="col-d9 col-t11 max-width">
+          <h1 class="mE">Archive des articles</h1>
+        </div>
+      </div>
+      <div class="flex">
+        <div class="col-d9 col-t11 max-width mart">
+          <a class="block btn" href="/articles/new">Créer un nouvel article</a>
+          <% articles.map(article => { %>
+            <div class="card">
+              <p>
+                <strong><%= article.title; %></strong> publié le <%= article.createdAt.toLocaleDateString("fr-CA"); %>
+              </p>
+              <p>
+                <%= article.description; %>
+              </p>
+              <a class="btn" href="/articles/<%= article.slug %>">Voir l'article</a>
+              <form class="inline" action="/articles/<%= article.slug %>?_method=DELETE" method="POST">
+                <input class="btn red" type="submit" value="Supprimer">
+              </form>
+            </div>
+          <% }); %>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
